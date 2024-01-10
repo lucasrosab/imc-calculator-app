@@ -10,7 +10,7 @@ const estilos = StyleSheet.create({
     texto: {
         fontFamily: "InterTextos",
         width: "100%",
-        padding: 20,
+        paddingStart: 20,
         fontSize: 16
     }
 })
