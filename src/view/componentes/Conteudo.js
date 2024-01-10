@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import { Keyboard, StyleSheet, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import dados from "../../model/mock/conteudoMock"
 import Texto from "./Texto";
 
@@ -8,21 +8,31 @@ export default function Conteudo() {
     const [number, onChangeNumber] = React.useState('');
 
     return <>
-        <Texto children={ dados.titlePeso } customDesign={ estilos.title}/>
-        <TextInput
-            style={ estilos.inputText }
-            placeholder={ dados.campoPeso }
-            maxLength={ 3 }
-            keyboardType="numeric"
-        />
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+            <View>
+                <Texto children={ dados.titlePeso } customDesign={ estilos.title}/> 
 
-        <Texto children={ dados.titleAltura } customDesign={ estilos.title}/>
-        <TextInput
-            style={ estilos.inputText }
-            placeholder={ dados.campoAltura }
-            maxLength={ 3 }
-            keyboardType="numeric"
-        />
+                <TextInput
+                    style={ estilos.inputText }
+                    placeholder={ dados.campoPeso }
+                    maxLength={ 3 }
+                    keyboardType="number-pad"
+                />
+            </View>
+        </TouchableWithoutFeedback> 
+        
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+            <View>
+                <Texto children={ dados.titleAltura } customDesign={ estilos.title}/>
+
+                <TextInput
+                    style={ estilos.inputText }
+                    placeholder={ dados.campoAltura }
+                    maxLength={ 3 }
+                    keyboardType="number-pad"
+                />
+            </View>
+        </TouchableWithoutFeedback> 
 
         <TouchableOpacity style={ estilos.btn }>
             <Texto customDesign={ estilos.btnTitle }>{ dados.btnCalcular }</Texto>
@@ -49,7 +59,4 @@ const estilos = StyleSheet.create({
         borderRadius: 20,
         padding: 10
     },
-    title: {
-
-    }
 })
