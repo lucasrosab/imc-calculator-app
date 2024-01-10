@@ -7,6 +7,7 @@ import {
   Inter_400Regular,
   Inter_200ExtraLight
 } from "@expo-google-fonts/inter"
+import Conteudo from './src/view/componentes/Conteudo';
 
 export default function App() {
 
@@ -22,6 +23,7 @@ export default function App() {
   return (
     <View>
       <Cabecalho />
+      <Conteudo />
     </View>
   );
 }

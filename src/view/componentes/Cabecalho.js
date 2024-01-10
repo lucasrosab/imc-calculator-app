@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, Dimensions, View } from "react-native";
 
-import backgroundImage from "../../../assets/background.jpg"
+import dados from "../../model/mock/cabecalhoMock"
 import Texto from "./Texto";
 import Titulo from "./Titulo"
 
@@ -9,10 +9,10 @@ const width = Dimensions.get('screen').width;
 
 export default function Cabecalho() {
     return <>
-        <Image source={ backgroundImage } style={estilos.imgCabecalho} />
-        <Titulo children={"Calculadora de IMC"} customDesign={estilos.titulo}/>
+        <Image source={ dados.background } style={ estilos.imgCabecalho } />
+        <Titulo children={ dados.titulo } customDesign={ estilos.titulo }/>
         <View>
-            <Texto children={"Descubra como está a sua saúde através do calculo do IMC (Indice de Massa Corpórea)"} customDesign={estilos.texto} />
+            <Texto children={ dados.descricao } customDesign={ estilos.texto } />
         </View>
     </>
 }
@@ -26,7 +26,7 @@ const estilos = StyleSheet.create({
         position: "absolute",
         textAlign: "center",
         marginTop: "15%",
-        color: "black"
+        color: "white"
     },
     texto: {
         textAlign: "justify",
